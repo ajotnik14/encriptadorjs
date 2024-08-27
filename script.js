@@ -1,39 +1,39 @@
-var botonEncriptar = document.querySelector(".btn-encriptar");
-var botonDesencriptar = document.querySelector(".btn-desencriptar");
-var munieco = document.querySelector(".contenedormuñeco");
-var contenedor = document.querySelector(".contenedor-parrafo");
-var resultado = document.querySelector(".texto-resultado");
+let botonEncriptar = document.querySelector(".btn-encriptar");
+let botonDesencriptar = document.querySelector(".btn-desencriptar");
+let muñeco = document.querySelector(".contenedor-muñeco");
+let contenedor = document.querySelector(".contenedor-parrafo");
+let resultado = document.querySelector(".texto-resultado");
 
 botonEncriptar.onclick = encriptar;
 botonDesencriptar.onclick = desencriptar;
 
 function encriptar(){
     ocultarAdelante();
-    var cajatexto = recuperarTexto()
+    let cajatexto = recuperarTexto()
     resultado.textContent = encriptarTexto(cajatexto);
 }
 
 function desencriptar(){
     ocultarAdelante();
-    var cajatexto = recuperarTexto()
+    let cajatexto = recuperarTexto()
     resultado.textContent = desencriptarTexto(cajatexto);
 }
 
 function recuperarTexto(){
-    var cajatexto = document.querySelector(".cajatexto")
+    let cajatexto = document.querySelector(".cajatexto")
     return cajatexto.value
 }
 
 function ocultarAdelante(){
-    munieco.classList.add("ocultar");
+    muñeco.classList.add("ocultar");
     contenedor.classList.add("ocultar");
 }
 
 function encriptarTexto(mensaje){
-    var texto = mensaje;
-    var textoFinal = "";
+    let texto = mensaje;
+    let textoFinal = "";
 
-    for(var i = 0; i < texto.length; i++){
+    for(let i = 0; i < texto.length; i++){
         if(texto[i] == "a"){
             textoFinal = textoFinal + "ai"
         }
@@ -58,10 +58,10 @@ function encriptarTexto(mensaje){
 }
 
 function desencriptarTexto(mensaje){
-    var texto = mensaje;
-    var textoFinal = "";
+    let texto = mensaje;
+    let textoFinal = "";
 
-    for(var i = 0; i < texto.length; i++){
+    for(let i = 0; i < texto.length; i++){
         if(texto[i] == "a"){
             textoFinal = textoFinal + "a"
             i = i+1;
@@ -95,7 +95,7 @@ function desencriptarTexto(mensaje){
 
 const btnCopiar = document.querySelector(".btn-copiar"); 
     btnCopiar.addEventListener("click", copiar = () => {
-    var contenido = document.querySelector(".texto-resultado").textContent;
+    let contenido = document.querySelector(".texto-resultado").textContent;
     navigator.clipboard.writeText(contenido);
     console.log(""); 
 });
